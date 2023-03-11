@@ -11,6 +11,13 @@ function MyFiles() {
     { fileName: 'Microsoft Office 365', fileSize: '5GB' },
     { fileName: 'Microsoft Office 365', fileSize: '5GB' },
     { fileName: 'Microsoft Office 365', fileSize: '5GB' },
+    { fileName: 'GTA Vice City', fileSize: '20GB' },
+    { fileName: 'The Sims 4', fileSize: '10GB' },
+    { fileName: 'Photoshop CC 2022', fileSize: '2GB' },
+    { fileName: 'Microsoft Office 365', fileSize: '5GB' },
+    { fileName: 'Microsoft Office 365', fileSize: '5GB' },
+    { fileName: 'Microsoft Office 365', fileSize: '5GB' },
+    { fileName: 'Microsoft Office 365', fileSize: '5GB' },
   ];
 
   return (
