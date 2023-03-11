@@ -1,5 +1,5 @@
 import React from "react";
-import FileCard from "../components/FileCard";
+
 import { FaCheck } from "react-icons/fa";
 
 function Home() {
