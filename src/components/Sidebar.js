@@ -14,9 +14,9 @@ const Sidebar = () => {
           <FaHome className="mr-4" />
           <span className="font-medium">Home</span>
         </Link>
-        <Link to="/folder" className="pl-8 py-2 text-gray-300 hover:text-black hover:bg-white flex items-center cursor-pointer">
+        <Link to="/myFiles" className="pl-8 py-2 text-gray-300 hover:text-black hover:bg-white flex items-center cursor-pointer">
           <FaFolder className="mr-4" />
-          <span className="font-medium">Folders</span>
+          <span className="font-medium">My Files</span>
         </Link>
         <Link to="/settings" className="pl-8 py-2 text-gray-300 hover:text-black hover:bg-white flex items-center cursor-pointer">
           <FaCog className="mr-4" />

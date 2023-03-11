@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, RouterProvider, createBrowserRouter, crea
 import DefaultLayout from "./DefaultLayout"
 import Home from './pages/Home';
 import About from "./pages/About"
+import MyFiles from './pages/MyFiles';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route element={<DefaultLayout />}>
           <Route index path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/myFiles" element={<MyFiles />} />
         </Route>
         <Route path="/login" element={<Login />} />
       </Routes>
