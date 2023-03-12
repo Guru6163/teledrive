@@ -4,7 +4,7 @@ import { FaCheck } from "react-icons/fa";
 
 function Home() {
   return (
-    <div className="h-full flex">
+    <div className="h-full flex ">
       <div className="bg-gradient-to-br from-indigo-600 to-purple-600  p-6 text-white">
         <h1 className="text-4xl font-bold mb-6">
           Introducing TeleDrive
