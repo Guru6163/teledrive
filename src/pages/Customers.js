@@ -1,107 +1,103 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { getAllCustomers } from "../api/api";
+import { useNavigate } from "react-router-dom";
 
 function Customers() {
-  const customers = [
-    {
-      name: "John Doe",
-      phoneNumber: "123-456-7890",
-      address: "123 Main St, Anytown USA",
-      email: "john.doe@example.com",
-    },
-    {
-      name: "Jane Smith",
-      phoneNumber: "555-555-1212",
-      address: "456 Elm St, Anytown USA",
-      email: "jane.smith@example.com",
-    },
-    {
-      name: "Bob Johnson",
-      phoneNumber: "987-654-3210",
-      address: "789 Oak St, Anytown USA",
-      email: "bob.johnson@example.com",
-    },
-    {
-      name: "John Doe",
-      phoneNumber: "123-456-7890",
-      address: "123 Main St, Anytown USA",
-      email: "john.doe@example.com",
-    },
-    {
-      name: "Jane Smith",
-      phoneNumber: "555-555-1212",
-      address: "456 Elm St, Anytown USA",
-      email: "jane.smith@example.com",
-    },
-    {
-      name: "Bob Johnson",
-      phoneNumber: "987-654-3210",
-      address: "789 Oak St, Anytown USA",
-      email: "bob.johnson@example.com",
-    },
-  ];
+  const [customers, setCustomers] = useState([])
+  const navigate = useNavigate()
+  useEffect(() => {
+    getAllCustomers().then(res => setCustomers(res))
+  }, [])
+
+  const tableHeaders = [
+    "Name",
+    "Phone Number",
+    "Address",
+    "Email",
+    "Role",
+    "Status"
+  ]
   return (
     <div>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h2 className="text-3xl font-bold mb-8">Customers</h2>
-        <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
-              <tr>
-                <th
-                  scope="col"
-                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
-                  Name
-                </th>
-                <th
-                  scope="col"
-                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
-                  Phone Number
-                </th>
-                <th
-                  scope="col"
-                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
-                  Address
-                </th>
-                <th
-                  scope="col"
-                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
-                  Email
-                </th>
-              </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              {customers.map((customer, index) => (
-                <tr key={index}>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm font-medium text-gray-900">
-                      {customer.name}
-                    </div>
+      <section className="flex h-screen bg-gray-50 dark:bg-gray-900 pt-10">
+        <div className="w-full lg:px-12">
+          <div className="relative overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
+            <div className="flex-row items-center justify-between p-4 space-y-3 sm:flex sm:space-y-0 sm:space-x-4">
+              <div>
+                <h5 className="mr-3 font-semibold dark:text-white">Customers</h5>
+                <p className="text-gray-500 dark:text-gray-400">Manage all your existing customers or add a new one</p>
+              </div>
+              <button onClick={()=>navigate("/customers/create")} type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add New Customer</button>
+            </div>
+          </div>
+
+          <div class="relative overflow-x-auto">
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+              <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                  <th scope="col" class="px-6 py-3">
+                    Product name
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    Color
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    Category
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    Price
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                  <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Apple MacBook Pro 17"
+                  </th>
+                  <td class="px-6 py-4">
+                    Silver
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">
-                      {customer.phoneNumber}
-                    </div>
+                  <td class="px-6 py-4">
+                    Laptop
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">
-                      {customer.address}
-                    </div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">
-                      {customer.email}
-                    </div>
+                  <td class="px-6 py-4">
+                    $2999
                   </td>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                  <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Microsoft Surface Pro
+                  </th>
+                  <td class="px-6 py-4">
+                    White
+                  </td>
+                  <td class="px-6 py-4">
+                    Laptop PC
+                  </td>
+                  <td class="px-6 py-4">
+                    $1999
+                  </td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800">
+                  <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Magic Mouse 2
+                  </th>
+                  <td class="px-6 py-4">
+                    Black
+                  </td>
+                  <td class="px-6 py-4">
+                    Accessories
+                  </td>
+                  <td class="px-6 py-4">
+                    $99
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
         </div>
-      </div>
+      </section>
     </div>
   );
 }

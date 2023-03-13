@@ -5,7 +5,13 @@ module.exports = {
     fontFamily: {
       sans: ["Open Sans", "sans-serif"],
     },
-    extend: {},
+   
+    extend: {
+      backgroundColor: {
+        'default': 'white', // Set your default background color here
+      },
+  
+    },
   },
   plugins: [],
 };

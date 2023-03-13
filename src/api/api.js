@@ -16,3 +16,14 @@ export const login = async (email, password) => {
     throw new Error("Failed to Login");
   }
 };
+
+export const getAllCustomers = async () => {
+  const url = `${API_BASE_URL}/api/user/allUsers`;
+  try {
+    const response = await axios.get(url, { headers });
+    return response.data
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed");
+  }
+};

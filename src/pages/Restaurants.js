@@ -44,19 +44,21 @@ const restaurants = [
 
 function Restaurants() {
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="flex justify-between items-center mb-8">
-        <h2 className="text-3xl font-bold">Discover Restaurants</h2>
-        <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded flex items-center">
-          <FaPlus className="mr-2" /> Add New Restaurant
-        </button>
+    <section class="bg-white dark:bg-gray-900 min-h-screen">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 ">
+      <div class="mx-auto max-w-screen-sm text-center mb-4 lg:mb-4">
+        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Partnered Restaurants</h2>
+        <p class="font-light text-gray-500 lg:mb-4 sm:text-xl dark:text-gray-400">Explore the whole collection of open-source web components and elements built with the utility classes from Tailwind</p>
+        <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add New Restaurant</button>
+
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        {restaurants.map((restaurant, index) => (
-          <Restaurant key={index} {...restaurant} />
-        ))}
+         <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-4">
+        {restaurants.map((ele)=><Restaurant name={ele.name} image={ele.image} rating={ele.rating} category={ele.category} />)}
       </div>
     </div>
+  </section>
+  
+
   );
 
 }

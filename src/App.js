@@ -10,6 +10,8 @@ import Orders from "./pages/Orders";
 import Settings from "./pages/Settings";
 import Support from "./pages/Support";
 import DeliveryPartners from "./pages/DeliveryPartners";
+import UpdateCustomerDetails from "./components/UpdateCustomerDetails";
+import CreateCustomer from "./components/CreateCustomer";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="/dashboard" element={<Dashbaord />} />
           <Route path="/restaurants" element={<Restaurants />} />
           <Route path="/customers" element={<Customers />} />
+          <Route path="/customers/update" element={<UpdateCustomerDetails />} />
+          <Route path="/customers/create" element={<CreateCustomer />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/deliveryPartners" element={<DeliveryPartners />} />
